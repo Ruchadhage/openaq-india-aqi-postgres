@@ -8,9 +8,8 @@ An end-to-end data pipeline that pulls **hourly air-quality readings for Indian 
 
 ## Results
 
-| Worst day per city | Monthly average AQI |
-|---|---|
-| ![Worst day per city](worst_day_chart.png) | ![Monthly average AQI heatmap](monthly_heatmap.png) |
+Worst day per city and Monthly average AQI in docs
+
 
 *Example from a short test run (Delhi + Mumbai, ~48 h of data). Only Mumbai qualifies for a daily AQI so far; coverage grows as you collect more history.*
 
