@@ -1,0 +1,3 @@
+city_name,obs_date,aqi,category,dominant_pollutant,pm25,pm10,rank_in_city
+Mumbai,2026-10-07,109.0,Moderate,pm10,44.82,113.82,1
+Mumbai,2026-10-06,101.0,Moderate,pm10,34.88,101.43,2

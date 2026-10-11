@@ -1,0 +1,12 @@
+# Jupyter
+.ipynb_checkpoints/
+runs/
+# Secrets / local config
+.env
+*.env
+# Generated exports
+data/*.csv
+# Python
+__pycache__/
+*.pyc
+.venv/

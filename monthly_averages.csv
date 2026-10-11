@@ -1,0 +1,2 @@
+city_name,month,days_with_data,avg_aqi,max_aqi,avg_pm25,avg_pm10,avg_no2,unhealthy_days,pct_unhealthy_days,typical_category
+Mumbai,2026-10-01,2,105.0,109.0,39.9,107.6,39.0,0,0.0,Moderate
