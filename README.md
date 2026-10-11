@@ -10,7 +10,7 @@ An end-to-end data pipeline that pulls **hourly air-quality readings for Indian 
 
 | Worst day per city | Monthly average AQI |
 |---|---|
-| ![Worst day per city](docs/worst_day_chart.png) | ![Monthly average AQI heatmap](docs/monthly_heatmap.png) |
+| ![Worst day per city](worst_day_chart.png) | ![Monthly average AQI heatmap](monthly_heatmap.png) |
 
 *Example from a short test run (Delhi + Mumbai, ~48 h of data). Only Mumbai qualifies for a daily AQI so far; coverage grows as you collect more history.*
 
@@ -52,7 +52,8 @@ aqi-collector/
 │   ├── 01_schema.sql            # tables, CPCB breakpoints, sub_index() / aqi_category(), seed cities
 │   ├── 02_views.sql             # hourly → daily → city AQI
 │   └── 03_reports.sql           # v_worst_days, v_monthly_averages, v_unhealthy_hours, v_ingest_quality
-├── docs/                        # screenshots used in this README
+├── worst_day_chart.png          # result screenshots used in this README
+├── monthly_heatmap.png
 ├── data/                        # CSV exports (git-ignored)
 ├── requirements.txt
 └── README.md
