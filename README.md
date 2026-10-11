@@ -40,24 +40,6 @@ OpenAQ API v3 ──► Jupyter notebook (Python) ──► PostgreSQL (aqi sche
 
 ---
 
-## Repository structure
-
-```
-aqi-collector/
-├── notebooks/
-│   └── aqi_collector.ipynb      # fetch → transform → load → reports & charts
-├── sql/
-│   ├── 00_create_database.sql   # CREATE DATABASE aqi_db
-│   ├── 01_schema.sql            # tables, CPCB breakpoints, sub_index() / aqi_category(), seed cities
-│   ├── 02_views.sql             # hourly → daily → city AQI
-│   └── 03_reports.sql           # v_worst_days, v_monthly_averages, v_unhealthy_hours, v_ingest_quality
-├── worst_day_chart.png          # result screenshots used in this README
-├── monthly_heatmap.png
-├── data/                        # CSV exports (git-ignored)
-├── requirements.txt
-└── README.md
-```
-
 ### Database objects (schema `aqi`)
 | Object | Type | Purpose |
 |---|---|---|
@@ -143,21 +125,9 @@ Schedule it hourly with Windows Task Scheduler or `cron` (`0 * * * *`).
 
 ---
 
-## Known limitations
-- **Coverage depends on OpenAQ.** Many Indian stations report only PM2.5 (and sometimes PM10). A city whose active stations don't together report ≥ 3 pollutants will have hourly data but **no daily AQI** under the strict CPCB rule.
-- OpenAQ lists many *inactive* stations; the collector filters these out, but availability can still vary day to day.
-- OpenAQ sometimes mislabels CO units: e.g. Mumbai's CPCB station reports `0.5` with unit `ppb`, which is really 0.5 mg/m³ (0.5 ppb of CO is physically impossible). The transform detects labels that would give an implausibly low value (< 0.02 mg/m³) while the raw numbers look like mg/m³, keeps them as mg/m³ and prints a `CO unit fix` warning. Some stations also report a constant value (low sensor resolution), so CO should be interpreted with care.
-- Free-tier API rate limits make large backfills slow; collect history in chunks.
-
-## Ideas for next steps
-- Relaxed AQI mode (flagged as "partial") for cities with fewer than 3 pollutants
-- Dashboard (Power BI / Streamlit) on top of the SQL views
-- Alerts when a city crosses AQI 200
-- Add more cities via `INSERT INTO aqi.cities …`
 
 ## Data sources & credits
 - Air-quality data: [OpenAQ](https://openaq.org) (aggregated from government and research monitors, e.g. CPCB).
 - AQI breakpoints: India Central Pollution Control Board (CPCB) National Air Quality Index.
 
-## License
-Add a license of your choice (e.g. MIT) before publishing.
+
